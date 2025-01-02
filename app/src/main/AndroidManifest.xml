@@ -16,9 +16,6 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.LangActivity"
-            android:exported="false" />
-        <activity
             android:name=".auth.ProfileActivity"
             android:exported="false" />
         <activity

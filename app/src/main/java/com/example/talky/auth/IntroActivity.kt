@@ -25,10 +25,5 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
-
-        binding.langBtn.setOnClickListener {
-            val intent = Intent(this, LangActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
