@@ -1,6 +1,5 @@
 package com.example.talky.ui.talky
 
-import ChatViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.example.talky.R
 import com.example.talky.databinding.FragmentTalkyBinding
 
@@ -17,7 +15,7 @@ class TalkyFragment : Fragment() {
     private var _binding: FragmentTalkyBinding? = null
     private val binding get() = _binding!!
 
-    private val chatViewModel: ChatViewModel by activityViewModels()  // 여기서 ViewModel을 가져옵니다.
+    private val chatMessages = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,18 +29,15 @@ class TalkyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadChatMessages()
-
+        // Set up Send Button click listener
         binding.sendButton.setOnClickListener {
             val message = binding.inputField.text.toString()
             if (message.isNotBlank()) {
-                chatViewModel.addMessage("User", message)
-                addMessageToChat("You: $message", true)
+                addMessageToChat("You: $message", true)  // User message
                 binding.inputField.text.clear()
 
-                val botResponse = "Bot: Thank you for your message!"
-                chatViewModel.addMessage("Bot", botResponse)
-                addMessageToChat(botResponse, false)
+                // Simulate a response from the bot
+                addMessageToChat("Bot: Thank you for your message!", false)  // Bot message
             }
         }
     }
@@ -71,17 +66,10 @@ class TalkyFragment : Fragment() {
             }
         }
 
-        // 메시지 추가
         binding.messagesContainer.addView(textView)
 
         binding.chatContainer.post {
             binding.chatContainer.fullScroll(View.FOCUS_DOWN)
-        }
-    }
-
-    private fun loadChatMessages() {
-        for (chatMessage in chatViewModel.chatMessages) {
-            addMessageToChat("${chatMessage.sender}: ${chatMessage.message}", chatMessage.sender == "User")
         }
     }
 
