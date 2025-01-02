@@ -51,4 +51,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx.v287)
+    implementation (libs.androidx.lifecycle.livedata.ktx.v287)
+    implementation (libs.androidx.activity.ktx)
 }
