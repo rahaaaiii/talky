@@ -8,15 +8,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ChatManager {
+class ChatManager(
+    private val userName: String,
+    private val userAge: String,
+    private val selectedLanguage: String
+) {
     private val history = mutableListOf<Message>()
 
     fun sendMessage(userMessage: String, onResult: (String) -> Unit, onError: (String) -> Unit) {
+
+        // 사용자 정보를 포함한 systemMessage 생성
         val systemMessage = Message(
             role = "system",
             content = """
                 너의 이름은 'Talky'야.
-                너는 사용자의 나이에 맞춰 또래 나이로 자신을 소개해.
+                사용자가 선택한 언어는 '$selectedLanguage'야.
+                사용자의 이름이 '$userName'이고, 나이는 '$userAge'살이야.
+                사용자의 나이에 맞춰 또래 나이로 자신을 소개해.
                 사용자의 말을 최대한 듣고 잘 공감하는 대화 친구가 되어줘.
                 사용자가 명시적으로 대화를 끝내고 싶어할 때까지 계속 사용자와의 대화를 이어가.
 

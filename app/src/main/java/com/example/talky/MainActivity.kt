@@ -1,36 +1,5 @@
 package com.example.talky
 
-//import android.os.Bundle
-//import android.widget.Button
-//import android.widget.EditText
-//import android.widget.TextView
-//import androidx.appcompat.app.AppCompatActivity
-
-//class MainActivity : AppCompatActivity() {
-//    private lateinit var chatManager: ChatManager
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//
-//        chatManager = ChatManager()
-//
-//        val inputField = findViewById<EditText>(R.id.inputField)
-//        val sendButton = findViewById<Button>(R.id.sendButton)
-//        val chatView = findViewById<TextView>(R.id.chatView)
-//
-//        sendButton.setOnClickListener {
-//            val userMessage = inputField.text.toString()
-//            chatManager.sendMessage(userMessage, { response ->
-//                chatView.text = "Bot: $response"
-//            }, { error ->
-//                chatView.text = "Error: $error"
-//            })
-//        }
-//    }
-//}
-
-
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar

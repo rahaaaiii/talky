@@ -30,8 +30,15 @@ class TalkyFragment : Fragment() {
     ): View {
         _binding = FragmentTalkyBinding.inflate(inflater, container, false)
 
-        // Initialize ChatManager and TTSManager
-        chatManager = ChatManager()
+        // 사용자 정보 가져오기
+        val userName = arguments?.getString("USER_NAME") ?: "Unknown"
+        val userAge = arguments?.getString("USER_AGE") ?: "Unknown"
+        val selectedLanguage = arguments?.getString("SELECTED_LANGUAGE") ?: "한국어"
+
+        // ChatManager 초기화
+        chatManager = ChatManager(userName, userAge, selectedLanguage)
+
+        // Initialize TTSManager
         ttsManager = TTSManager(requireContext())
 
         // Set up UI interactions
