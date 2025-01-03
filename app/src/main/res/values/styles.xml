@@ -1,0 +1,19 @@
+<resources>
+    <!-- Style for user message bubble -->
+    <style name="UserMessageBubble">
+        <item name="android:background">@drawable/user_message_bubble</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- Style for bot message bubble -->
+    <style name="BotMessageBubble">
+        <item name="android:background">@drawable/bot_message_bubble</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+</resources>
