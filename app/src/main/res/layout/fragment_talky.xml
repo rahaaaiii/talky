@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- 사용자 입력 필드 -->
-    <EditText
-        android:id="@+id/inputField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:hint="Enter your message"
-        android:inputType="text" />
-
-    <!-- 메시지 전송 버튼 -->
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Send" />
-
-    <!-- 응답 목록이 표시될 영역 -->
+    <!-- Chat messages container (scrollable) -->
     <ScrollView
+        android:id="@+id/chatContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:contentDescription="Chat messages area">
+
 
         <LinearLayout
-            android:id="@+id/chatContainer"
+            android:id="@+id/messagesContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <!-- Input field and send button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/inputField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:hint="Type a message"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send" />
+    </LinearLayout>
 </LinearLayout>
